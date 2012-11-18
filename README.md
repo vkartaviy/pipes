@@ -1,4 +1,4 @@
-Batch
+Pipes
 =====
 
 The library for data flow processing.
