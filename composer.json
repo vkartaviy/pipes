@@ -1,0 +1,20 @@
+{
+    "name": "vkartaviy/pipes",
+    "description": "The library for data flow processing",
+    "keywords": ["pipes", "pipeline", "iterator-pipeline"],
+    "homepage": "https://github.com/vkartaviy/pipes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Kartaviy",
+            "email": "vkartaviy@gmail.com",
+            "homepage": "http://vkartaviy.name"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "Pipes": "src/" }
+    }
+}
