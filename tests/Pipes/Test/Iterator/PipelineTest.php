@@ -21,7 +21,7 @@ class PipelineTest extends \PHPUnit_Framework_TestCase
         $input = array(1, 2, 3);
 
         $pipeline = new Pipeline($input);
-        $this->assertSame($input, $pipeline->toArray());
+        $this->assertSame($input, $pipeline->output());
     }
 
     public function testWithPipes()
@@ -33,7 +33,7 @@ class PipelineTest extends \PHPUnit_Framework_TestCase
             new RenumberPipe()
         ));
 
-        $this->assertSame(array(1, 2), $pipeline->toArray());
+        $this->assertSame(array(1, 2), $pipeline->output());
     }
 
     public function testDifferentInputs()
@@ -42,13 +42,13 @@ class PipelineTest extends \PHPUnit_Framework_TestCase
         $pipeline = new Pipeline();
 
         $pipeline->input($input);
-        $this->assertSame($input, $pipeline->toArray());
+        $this->assertSame($input, $pipeline->output());
 
         $pipeline->input(new \ArrayIterator($input));
-        $this->assertSame($input, $pipeline->toArray());
+        $this->assertSame($input, $pipeline->output());
 
         $pipeline->input(new \ArrayObject($input));
-        $this->assertSame($input, $pipeline->toArray());
+        $this->assertSame($input, $pipeline->output());
 
         try {
             $pipeline->input(null);
@@ -65,6 +65,6 @@ class PipelineTest extends \PHPUnit_Framework_TestCase
             ->map(function ($value) { return $value / 2; })
             ->renumber();
 
-        $this->assertSame(array(1, 2), $pipeline->toArray());
+        $this->assertSame(array(1, 2), $pipeline->output());
     }
 }

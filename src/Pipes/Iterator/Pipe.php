@@ -2,8 +2,6 @@
 
 namespace Pipes\Iterator;
 
-use ArrayIterator;
-
 abstract class Pipe implements \Iterator
 {
     /**
@@ -21,7 +19,7 @@ abstract class Pipe implements \Iterator
     public function input($input)
     {
         if (is_array($input)) {
-            $this->input = new ArrayIterator($input);
+            $this->input = new \ArrayIterator($input);
         } elseif ($input instanceof \Iterator) {
             $this->input = $input;
         } elseif ($input instanceof \IteratorAggregate) {
@@ -34,6 +32,14 @@ abstract class Pipe implements \Iterator
         }
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function output()
+    {
+        return iterator_to_array($this);
     }
 
     #region Iterator implementation
@@ -64,9 +70,4 @@ abstract class Pipe implements \Iterator
     }
 
     #endregion
-
-    public function toArray()
-    {
-        return iterator_to_array($this);
-    }
 }

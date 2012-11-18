@@ -15,4 +15,4 @@ $pipeline = new Pipeline(array(1, 1, 2, 2, 3, 3, 4, 4), array(
     new RenumberPipe()
 ));
 
-print_r($pipeline->toArray());
+print_r($pipeline->output());

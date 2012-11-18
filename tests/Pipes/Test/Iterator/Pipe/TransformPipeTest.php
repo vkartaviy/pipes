@@ -13,7 +13,7 @@ class TransformPipeTest extends \PHPUnit_Framework_TestCase
         });
 
         $pipe->input(array('one', 'two', 'three'));
-        $this->assertSame(array('ONE', 'TWO', 'THREE'), $pipe->toArray());
+        $this->assertSame(array('ONE', 'TWO', 'THREE'), $pipe->output());
     }
 
     /**

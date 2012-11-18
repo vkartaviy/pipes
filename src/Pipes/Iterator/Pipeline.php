@@ -76,6 +76,8 @@ class Pipeline extends Pipe
         return $this;
     }
 
+    #region Fluent build-in pipes
+
     /**
      * @param callable $callback
      * @return Pipeline
@@ -101,6 +103,8 @@ class Pipeline extends Pipe
     {
         return $this->pipe(new RenumberPipe());
     }
+
+    #endregion
 
     #region Iterator implementation
 
