@@ -4,6 +4,7 @@ namespace Pipes\Iterator;
 
 use Pipes\Iterator\Pipe\FilterPipe;
 use Pipes\Iterator\Pipe\TransformPipe;
+use Pipes\Iterator\Pipe\RenumberPipe;
 
 class Pipeline extends Pipe
 {
@@ -91,6 +92,14 @@ class Pipeline extends Pipe
     public function map($callback)
     {
         return $this->pipe(new TransformPipe($callback));
+    }
+
+    /**
+     * @return Pipeline
+     */
+    public function renumber()
+    {
+        return $this->pipe(new RenumberPipe());
     }
 
     #region Iterator implementation

@@ -13,7 +13,7 @@ class FilterPipe extends Pipe
 
     public function __construct($callback = null)
     {
-        if (!$callback) {
+        if (!isset($callback)) {
             $callback = function ($value) {
                 return (boolean) $value;
             };
