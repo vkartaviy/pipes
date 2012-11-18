@@ -24,9 +24,6 @@ abstract class Pipe implements \Iterator
             $this->input = $input;
         } elseif ($input instanceof \IteratorAggregate) {
             $this->input = $input->getIterator();
-        } elseif ($input instanceof \Traversable) {
-            $iterator = new \IteratorIterator($input);
-            $this->input = $iterator->getInnerIterator();
         } else {
             throw new \InvalidArgumentException('Invalid input type.');
         }
